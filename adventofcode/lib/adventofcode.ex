@@ -55,5 +55,3 @@ defmodule Adventofcode do
         end
     end
 end
-
-Adventofcode.day2_part1()
