@@ -18,4 +18,8 @@ defmodule KeyValue.BucketTest do
     assert KeyValue.Bucket.delete(bucket, "milk") == 3
     assert KeyValue.Bucket.get(bucket, "milk") == nil
   end
+
+  test "are temporary workers" do
+    assert Supervisor.child_spec(KeyValue.Bucket, []).restart == :temporary
+  end
 end

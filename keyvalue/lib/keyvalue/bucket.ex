@@ -1,5 +1,5 @@
 defmodule KeyValue.Bucket do
-  use Agent
+  use Agent, restart: :temporary
 
   @doc """
   Create a new bucket
