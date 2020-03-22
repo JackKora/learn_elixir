@@ -2,7 +2,7 @@ defmodule KeyValue.BucketTest do
     use ExUnit.Case, async: true
 
     setup do
-        {:ok, bucket} = KeyValue.Bucket.create([])
+        bucket = start_supervised!(KeyValue.Bucket)
         %{bucket: bucket}
     end
 

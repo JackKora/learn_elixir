@@ -4,7 +4,7 @@ defmodule KeyValue.Bucket do
     @doc """
     Create a new bucket
     """
-    def create(_opts) do
+    def start_link(_opts) do
         Agent.start_link(fn -> %{} end)
     end
 

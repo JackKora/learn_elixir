@@ -1,18 +1,10 @@
 defmodule KeyValue do
-  @moduledoc """
-  Documentation for `KeyValue`.
-  """
+    use Application
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> KeyValue.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+    @impl true
+    def start(_type, _args) do
+        # Although we don't use the supervisor name below directly,
+        # it can be useful when debugging or introspecting the system.
+        KeyValue.Supervisor.start_link(name: KeyValue.Supervisor)
+    end
 end
