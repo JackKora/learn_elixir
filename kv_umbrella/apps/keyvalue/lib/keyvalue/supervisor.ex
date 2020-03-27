@@ -9,7 +9,8 @@ defmodule KeyValue.Supervisor do
   def init(:ok) do
     children = [
       {KeyValue.Registry, name: KeyValue.Registry},
-      {DynamicSupervisor, name: KeyValue.BucketSupervisor, strategy: :one_for_one}
+      {DynamicSupervisor, name: KeyValue.BucketSupervisor, strategy: :one_for_one},
+      {Task.Supervisor, name: KeyValue.RouterTasks},
     ]
 
     Supervisor.init(children, strategy: :one_for_all)
