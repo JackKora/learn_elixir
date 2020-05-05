@@ -42,7 +42,11 @@ defmodule Hello.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:prometheus, "~> 4.0", override: true},
+      {:prometheus_ex, "~> 3.0"},
+      {:prometheus_plugs, "~> 1.0"},
+      {:prometheus_phoenix, "~> 1.2"},
     ]
   end
 

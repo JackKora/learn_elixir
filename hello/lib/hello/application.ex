@@ -5,6 +5,8 @@ defmodule Hello.Application do
 
   use Application
 
+  alias Hello
+
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
@@ -15,6 +17,14 @@ defmodule Hello.Application do
       # Starts a worker by calling: Hello.Worker.start_link(arg)
       # {Hello.Worker, arg},
     ]
+
+    require Prometheus.Registry
+    Hello.PhoenixInstrumenter.setup()
+    if :os.type == {:unix, :linux} do
+      Prometheus.Registry.register_collector(:prometheus_process_collector)
+    end
+    Hello.PrometheusExporter.setup()
+    #Hello.VersionInstrumenter.setup(:my_app)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

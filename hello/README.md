@@ -10,7 +10,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-## Learn more
+# To do
+
+  * Add Ecto instrumentation based on https://gist.github.com/colinrymer/cba1a54dae069bd6c706d9bb91f13cd4
+
+# Learn more
 
   * Official website: https://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html

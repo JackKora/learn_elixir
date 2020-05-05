@@ -16,7 +16,14 @@ config :hello, HelloWeb.Endpoint,
   secret_key_base: "XISiHkFl7MFGGZW0Q8Az3F5d3lK/wVIQKk61NmErbEaNShFJ+GBgdPUJCbXH0R4x",
   render_errors: [view: HelloWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Hello.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "sI12T348"]
+  live_view: [signing_salt: "sI12T348"],
+  instrumenters: [Hello.PhoenixInstrumenter]
+
+config :prometheus, Hello.PhoenixInstrumenter,
+  controller_call_labels: [:controller, :action],
+  duration_buckets: [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1],
+  registry: :default,
+  duration_unit: :seconds
 
 # Configures Elixir's Logger
 config :logger, :console,
